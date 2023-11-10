@@ -9,51 +9,62 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+### Personal
 
-Work experience
-======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+欧仕刚 Shi-Gang Ou
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+Male, Born in 2001
 
-Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+email: oushigang19@mails.ucas.ac.cn
+
+### Education
+
+University of Chinese Academy of Sciences   ***2019 Fall-2023 Summer***
+
+Department of Physics, Undergraduates, major in Physics
+
+### Score and Courses
+
+GPA **3.81**/4.0
+
+**Thermodynamics and Statistical Physics** (Taught in English): by Prof. Wu Zhou & Prof.  Werner Hofer
+
+**Mathematical Physics(H)**: by Prof. Yi-Hong Gao
+
+**Theoretical Mechanics(H)**: by Prof. Mei Huang
+
+**Group Theory** (Graduate Level Course): by Prof. Jia-Jun Wu
+
+**Solid State Physics(H)**: by Prof. Wen-Jie Liang
+
+**Quantum Mechanics(H)**: by Prof. Jun-Peng Cao
+
+**Computational Mechanics** (FEM, FVM, CFD related topics): by Prof. Nian-Mei Zhang
+
+**Computational Physics** (MD related topics): by Prof. James Farrell
+
+**Data Mining**: by Prof. Ying Liu
+
+Hint: Here **H** denotes Honor Course
+
+### Language
+
+Native in **Chinese** and fluent in **English**
+
+CET-6: 562 	  ***2020-09***
+
+### Interests and Knowledge
+
+ab initio Calculation: Hartree-Fork Method and Density Functional Theory
+
+(Visiting student at [N11](http://n11.iphy.ac.cn/),IOP,CAS)
+
+Quantum Computation: Chemical Simulation Using Quantum Circuit
+
+(Visiting student at [QuACT](theory.ict.ac.cn),ICT,CAS)
+
+### Honors and Awards
+
+Outstanding Students Scholarship, [UCAS](https://www.ucas.ac.cn/)	  **2019-2020**
+
+Finalist of MCM/ICM, [AMS](https://www.ams.org/home/page)		**2021**
