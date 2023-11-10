@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "LaTeX on Server"
 date: 2023-04-08 09:13:46 +0800
 tags: [Programming]

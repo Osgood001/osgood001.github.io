@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Minimal Viable Product in Scientific Research"
 date: 2023-04-10 22:17:16 +0200
 tags: [Research,Tricks]

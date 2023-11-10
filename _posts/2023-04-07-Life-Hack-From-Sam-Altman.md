@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Life Hack From Sam Altman"
 date:  2033-04-07 23:28:25 +0800
 tags: [Reading, Personal-Development, Tricks]
