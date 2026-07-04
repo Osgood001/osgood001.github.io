@@ -7,7 +7,7 @@
 {% elsif site.name %}
 <meta name="citation_author" content="{{ site.name | escape_once }}">
 {% endif %}
-{% if page.date %}<meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}">{% endif %}
+{% if page.citation_publication_date %}<meta name="citation_publication_date" content="{{ page.citation_publication_date | escape_once }}">{% elsif page.date %}<meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}">{% endif %}
 {% if page.citation_journal_title %}<meta name="citation_journal_title" content="{{ page.citation_journal_title | escape_once }}">{% endif %}
 {% if page.citation_publisher %}<meta name="citation_publisher" content="{{ page.citation_publisher | escape_once }}">{% endif %}
 {% if page.citation_public_url %}<meta name="citation_public_url" content="{{ page.citation_public_url | escape_once }}">{% endif %}

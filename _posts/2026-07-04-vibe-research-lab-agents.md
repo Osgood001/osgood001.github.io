@@ -8,6 +8,7 @@ scholar_citation: true
 citation_title: "Vibe Research: Training, Safeguarding, and Evaluating Research Agents in a Lab"
 citation_author: ["Ou, Shigang"]
 citation_journal_title: "osgood001.github.io"
+citation_publication_date: "2026/07/04"
 citation_publisher: "Shigang Ou"
 citation_public_url: "https://osgood001.github.io/posts/2026-07-04-vibe-research-lab-agents/"
 citation_fulltext_html_url: "https://osgood001.github.io/posts/2026-07-04-vibe-research-lab-agents/"
