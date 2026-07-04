@@ -1,6 +1,6 @@
 ---
 title: "Vibe Research: Training, Safeguarding, and Evaluating Research Agents in a Lab"
-date: 2026-07-04 12:00:00 +0000
+date: 2026-07-04 12:30:00 +0800
 permalink: /posts/2026-07-04-vibe-research-lab-agents/
 tags: [AI Agents, Scientific Research, Vibe Research, Research Infrastructure, Claude Code]
 excerpt: "A lab-level pattern for making research agents useful: train them with shared context, safeguard them with infrastructure, and evaluate them through expert steering."
