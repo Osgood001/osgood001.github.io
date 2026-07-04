@@ -3614,7 +3614,7 @@ where $P(\sigma)$ is the probability distribution of the time-averaged irreversi
             = & \sqrt{\alpha_t}{\color{blue}(\sqrt{\alpha_{t-1}}x_{t-2} + \sqrt{1- \alpha_{t-1}} z_{t-2})} + \sqrt{1- \alpha_t} z_{t-1} \\
             
             = & \sqrt{\alpha_t\alpha_{t-1}}x_{t-2} + 
-            {\color{red}\sqrt{ {\alpha_t}(1- \alpha_{t-1})} z_{t-2} + \sqrt{1- \alpha_t} z_{t-1}} \\
+            {\color{red}\sqrt{{\alpha_t}(1- \alpha_{t-1})} z_{t-2} + \sqrt{1- \alpha_t} z_{t-1}} \\
             
             = & \sqrt{\alpha_t\alpha_{t-1}}x_{t-2} + {\color{red}\sqrt{1- \alpha_{t-1}\alpha_t} \bar{z}_{t-2}} \\
             
