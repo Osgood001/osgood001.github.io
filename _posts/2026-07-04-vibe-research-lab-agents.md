@@ -1,6 +1,6 @@
 ---
 title: "Vibe Research: Training, Safeguarding, and Evaluating Research Agents in a Lab"
-date: 2026-07-04 11:30:00 +0800
+date: 2026-07-04 12:00:00 +0000
 permalink: /posts/2026-07-04-vibe-research-lab-agents/
 tags: [AI Agents, Scientific Research, Vibe Research, Research Infrastructure, Claude Code]
 excerpt: "A lab-level pattern for making research agents useful: train them with shared context, safeguard them with infrastructure, and evaluate them through expert steering."
@@ -178,16 +178,14 @@ Research agent 不能只看 reward 或自我汇报。它需要 benchmark、exter
 <p>Ou, Shigang. "Vibe Research: Training, Safeguarding, and Evaluating Research Agents in a Lab". <em>osgood001.github.io</em> (Jul 2026). <br>
 <a href="https://osgood001.github.io/posts/2026-07-04-vibe-research-lab-agents/">https://osgood001.github.io/posts/2026-07-04-vibe-research-lab-agents/</a></p>
 
-```bibtex
-@article{ou2026vibe,
+<pre><code>@article{ou2026vibe,
   title   = {Vibe Research: Training, Safeguarding, and Evaluating Research Agents in a Lab},
   author  = {Ou, Shigang},
   journal = {osgood001.github.io},
   year    = {2026},
   month   = {July},
   url     = {https://osgood001.github.io/posts/2026-07-04-vibe-research-lab-agents/}
-}
-```
+}</code></pre>
 </div>
 
 ## References
