@@ -1,0 +1,17 @@
+{% if page.scholar_citation %}
+<meta name="citation_title" content="{{ page.citation_title | default: page.title | strip_html | strip_newlines | escape_once }}">
+{% if page.citation_author %}
+{% for author in page.citation_author %}<meta name="citation_author" content="{{ author | escape_once }}">
+{% endfor %}{% elsif site.author.name %}
+<meta name="citation_author" content="{{ site.author.name | escape_once }}">
+{% elsif site.name %}
+<meta name="citation_author" content="{{ site.name | escape_once }}">
+{% endif %}
+{% if page.date %}<meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}">{% endif %}
+{% if page.citation_journal_title %}<meta name="citation_journal_title" content="{{ page.citation_journal_title | escape_once }}">{% endif %}
+{% if page.citation_publisher %}<meta name="citation_publisher" content="{{ page.citation_publisher | escape_once }}">{% endif %}
+{% if page.citation_public_url %}<meta name="citation_public_url" content="{{ page.citation_public_url | escape_once }}">{% endif %}
+{% if page.citation_fulltext_html_url %}<meta name="citation_fulltext_html_url" content="{{ page.citation_fulltext_html_url | escape_once }}">{% endif %}
+{% if page.citation_pdf_url %}<meta name="citation_pdf_url" content="{{ page.citation_pdf_url | escape_once }}">{% endif %}
+{% if page.citation_keywords %}<meta name="citation_keywords" content="{{ page.citation_keywords | join: '; ' | escape_once }}">{% endif %}
+{% endif %}
