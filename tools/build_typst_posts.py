@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+"""Compile Typst sources in _typst/ into Jekyll posts and optional PDFs."""
+
+from __future__ import annotations
+
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE_DIR = ROOT / "_typst"
+OUTPUT_DIR = ROOT / "_posts" / "typst"
+PUBLIC_DIR = ROOT / "files" / "typst"
+NAME_PATTERN = re.compile(r"^(\d{4}-\d{2}-\d{2})-([a-z0-9-]+)\.typ$")
+
+
+def find_compiler() -> str:
+    candidates = [
+        os.environ.get("TYPST"),
+        shutil.which("typst"),
+        str(ROOT.parent / "tools" / ".bin" / "typst-0.15.1" / "typst"),
+    ]
+    for candidate in candidates:
+        if candidate and shutil.which(candidate):
+            return candidate
+        if candidate and Path(candidate).is_file():
+            return candidate
+    raise SystemExit(
+        "Typst was not found. Install it or set TYPST=/path/to/typst. "
+        "This workflow was tested with Typst 0.15.1."
+    )
+
+
+def run(command: list[str]) -> str:
+    result = subprocess.run(
+        command,
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if result.stderr:
+        sys.stderr.write(result.stderr)
+    if result.returncode:
+        if result.stdout:
+            sys.stdout.write(result.stdout)
+        raise RuntimeError(f"Command failed with exit code {result.returncode}: {command!r}")
+    return result.stdout
+
+
+def yaml_value(value: object) -> str:
+    return json.dumps(value, ensure_ascii=False)
+
+
+def build_post(source: Path, compiler: str, temporary_dir: Path) -> None:
+    match = NAME_PATTERN.match(source.name)
+    if not match:
+        raise ValueError(
+            f"{source.relative_to(ROOT)} must be named YYYY-MM-DD-slug.typ "
+            "using lowercase letters, numbers, and hyphens"
+        )
+
+    date, slug = match.groups()
+    metadata_text = run([
+        compiler,
+        "eval",
+        "query(<blog-meta>).first().value",
+        "--features",
+        "html",
+        "--input",
+        "target=html",
+        "--root",
+        str(ROOT),
+        "--in",
+        str(source),
+    ])
+    metadata = json.loads(metadata_text)
+    if not isinstance(metadata, dict):
+        raise ValueError(f"{source}: <blog-meta> must contain one dictionary")
+    for field in ("title", "date", "excerpt"):
+        if not isinstance(metadata.get(field), str) or not metadata[field].strip():
+            raise ValueError(f"{source}: metadata field {field!r} must be a nonempty string")
+    if metadata["date"] != date:
+        raise ValueError(f"{source}: metadata date must match the filename date {date}")
+
+    draft = metadata.get("draft", False)
+    if not isinstance(draft, bool):
+        raise ValueError(f"{source}: metadata field 'draft' must be true or false")
+
+    html_path = temporary_dir / f"{slug}.html"
+    run([
+        compiler,
+        "compile",
+        "--features",
+        "html",
+        "--input",
+        "target=html",
+        "--root",
+        str(ROOT),
+        "--pretty",
+        str(source),
+        str(html_path),
+    ])
+    document = html_path.read_text(encoding="utf-8")
+    head_match = re.search(r"<head\b[^>]*>(.*?)</head>", document, re.DOTALL)
+    body_match = re.search(r"<body\b[^>]*>(.*?)</body>", document, re.DOTALL)
+    if not head_match or not body_match:
+        raise ValueError(f"{source}: Typst did not produce a complete HTML document")
+    styles = "\n".join(
+        re.findall(r"<style\b[^>]*>.*?</style>", head_match.group(1), re.DOTALL)
+    )
+    body = body_match.group(1).strip()
+    if not body:
+        raise ValueError(f"{source}: refusing to publish an empty article")
+
+    front_matter = {
+        "layout": "single",
+        "title": metadata["title"],
+        "date": date,
+        "excerpt": metadata["excerpt"],
+        "permalink": f"/posts/{date}-{slug}/",
+        "published": not draft,
+        "mathjax": False,
+        "typst": True,
+    }
+    if "tags" in metadata:
+        front_matter["tags"] = metadata["tags"]
+
+    PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
+    pdf_path = PUBLIC_DIR / f"{date}-{slug}.pdf"
+    public_source = PUBLIC_DIR / f"{date}-{slug}.typ"
+    if draft:
+        # Validate the stable PDF path without exposing an unfinished draft.
+        pdf_path = temporary_dir / f"{slug}.pdf"
+    else:
+        front_matter["typst_pdf"] = f"/files/typst/{pdf_path.name}"
+        front_matter["typst_source"] = f"/files/typst/{public_source.name}"
+
+    run([
+        compiler,
+        "compile",
+        "--input",
+        "target=pdf",
+        "--root",
+        str(ROOT),
+        str(source),
+        str(pdf_path),
+    ])
+    if not draft:
+        shutil.copyfile(source, public_source)
+
+    lines = ["---"]
+    lines.extend(f"{key}: {yaml_value(value)}" for key, value in front_matter.items())
+    lines.extend([
+        "---",
+        "",
+        "{% raw %}",
+        "<!-- Generated by tools/build_typst_posts.py; edit the _typst source instead. -->",
+        styles,
+        body,
+        "{% endraw %}",
+        "",
+    ])
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output = OUTPUT_DIR / f"{date}-{slug}.html"
+    output.write_text("\n".join(lines), encoding="utf-8")
+    state = "draft; PDF validated but not published" if draft else "published"
+    print(f"Built {output.relative_to(ROOT)} ({state})")
+
+
+def main() -> None:
+    compiler = find_compiler()
+    sources = sorted(SOURCE_DIR.glob("*.typ"))
+    if not sources:
+        print("No Typst posts found.")
+        return
+    (ROOT / ".bundle").mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="typst-posts-", dir=ROOT / ".bundle") as directory:
+        for source in sources:
+            build_post(source, compiler, Path(directory))
+
+
+if __name__ == "__main__":
+    main()

@@ -6,14 +6,14 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "zh-CN"
-title                    : "Osgood's Personal Website"
-title_separator          : "-"
+locale                   : "en-US"
+title                    : "Osgood's Log"
+title_separator          : "|"
 name                     : &name "Shigang Ou"
-description              : &description "PhD student in Institute of Physics, Chinese Academy of Sciences"
+description              : &description "Notes on AI agents, scientific research, and things I'm learning."
 url                      : https://osgood001.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "osgood001/academicpages.github.io"
+repository               : "osgood001/osgood001.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -199,11 +199,12 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: true
-      share: true
+      share: false
       related: true
+      toc: true
   # _pages
   - scope:
       path: ""
@@ -257,7 +258,6 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins

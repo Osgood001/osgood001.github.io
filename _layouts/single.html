@@ -23,10 +23,11 @@ layout: default
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
     {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
 
-    <div class="page__inner-wrap">
+    <div class="page__inner-wrap{% if page.toc %} post-article{% endif %}">
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+          {% if page.published == false %}<p class="page__draft">Draft — not published</p>{% endif %}
           {% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
           {% endif %}
@@ -39,7 +40,7 @@ layout: default
         {% elsif page.venue and page.date %}
           <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {% if page.published == false %}Draft date:{% else %}{{ site.data.ui-text[site.locale].date_label | default: "Published:" }}{% endif %}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}
         
              
@@ -52,10 +53,26 @@ layout: default
         </header>
       {% endunless %}
 
+      {% if page.toc %}
+        <details class="page__toc" open>
+          <summary>On this page</summary>
+          <nav class="toc__nav" aria-label="Table of contents" data-post-toc></nav>
+        </details>
+        <script src="{{ '/assets/js/post-toc.js' | relative_url }}" defer></script>
+      {% endif %}
+
       <section class="page__content" itemprop="text">
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
+
+      {% if page.typst_pdf or page.typst_source %}
+        <p class="page__source">
+          {% if page.typst_pdf %}<a href="{{ page.typst_pdf | relative_url }}">PDF</a>{% endif %}
+          {% if page.typst_pdf and page.typst_source %}<span aria-hidden="true"> · </span>{% endif %}
+          {% if page.typst_source %}<a href="{{ page.typst_source | relative_url }}">Typst source</a>{% endif %}
+        </p>
+      {% endif %}
 
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}

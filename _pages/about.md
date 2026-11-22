@@ -1,65 +1,53 @@
 ---
-permalink: /
+permalink: /about/
 title: "About me"
-excerpt: "About me"
+excerpt: "About Shigang Ou"
 author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
 ---
 
 ## Welcome
 
-**My name is Shi-Gang Ou, you can also call me Osgood**
+**My name is Shi-Gang Ou, you can also call me Osgood.**
 
-I lived in Leshan/Xichang/Chengdu, and now in Beijing.
+I lived in Leshan, Xichang, and Chengdu, and now live in Beijing.
 
 ## Life Track
 
-- Leshan: Birth and Preschool **2001-2007**
-- Xichang: Primary School **2007-2013**
-- Chengdu: Junior and Senior High School  **2013-2019**
-- Beijing: Undergraduate study at University **2019-2023**
+- Leshan: Birth and Preschool **2001–2007**
+- Xichang: Primary School **2007–2013**
+- Chengdu: Junior and Senior High School **2013–2019**
+- Beijing: Undergraduate study at University **2019–2023**
 
 ## Interests
 
 ### Books I Enjoyed
 
-- *Greek mythology* 
-- Romance of the Three Kingdoms/三国演义
-- *The Three Body Problem* (by Ci-Xin Liu)/三体
-- *Zen and the Art of Motorcycle Maintenance: An Inquiry into Values* (by Pirsig)
-- *Discourse on the Method* (by Descartes)
-- *The Institutional Logic of Governance in China: An Organizational Approach*  (by Xue-Guang Zhou)
-- Reality is Broken (by Jane Mcgonigal)
+- *Greek mythology*
+- *Romance of the Three Kingdoms* / 三国演义
+- *The Three-Body Problem* by Liu Cixin / 三体
+- *Zen and the Art of Motorcycle Maintenance: An Inquiry into Values* by Robert M. Pirsig
+- *Discourse on the Method* by René Descartes
+- *The Institutional Logic of Governance in China: An Organizational Approach* by Xueguang Zhou
+- *Reality Is Broken* by Jane McGonigal
 
 ### Animations I Enjoyed
 
 - Attack on Titan
 - Rick and Morty
-- Scissor Seven/刺客伍六七
-- Under One Person: Outcast/一人之下
-- The Legend of Luo Xiaohei/罗小黑战记
+- Scissor Seven / 刺客伍六七
+- The Outcast / 一人之下
+- The Legend of Luo Xiaohei / 罗小黑战记
 - Ghost in the Shell
 - Neon Genesis Evangelion
 
-### Youtuber/Uploader I Enjoyed
+### YouTubers and Uploaders I Enjoy
 
-- 3Blue1Brown: Math  Videos via Coding
-- 天真的和感伤的小说家: Books Reviews&Story Adaptation
-- Bob Ross: A series of painting tutorial
-- Code Adventure: visualize algorithms using Unity and other game techniques
-- Inigo Quilez: Previous Engineer in Animation Studio, mainly about generating animations using Shadertoy
+- [3Blue1Brown](https://www.3blue1brown.com/): Math videos via coding
+- 天真的和感伤的小说家: Book reviews and story adaptations
+- Bob Ross: A series of painting tutorials
+- Code Adventure: Visualizing algorithms using Unity and other game techniques
+- Inigo Quilez: Generating animations using Shadertoy
 
 ### TV Series I Enjoyed
-- Wecrashed: story of the *WeWork* founders 
 
-## Website Introduction
-
-+ 2020.07: Initially deployed on GitHub Page with Jekyll
-+ 2021.07: Uploaded some previous articles
-+ 2021.08: Start to write with this website
-+ 2022.04: Deleted Most Articles from the website(try to make it better in the future)
-
-
-
+- *WeCrashed*: The story of the WeWork founders

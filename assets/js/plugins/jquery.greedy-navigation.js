@@ -14,6 +14,10 @@ var breaks = [];
 
 function updateNav() {
 
+  if (!$nav.hasClass('greedy-nav')) {
+    return;
+  }
+
   var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
 
   // The visible list is overflowing the nav

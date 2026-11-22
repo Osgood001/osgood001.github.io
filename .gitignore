@@ -1,2 +1,8 @@
 _site/
+.bundle/
+.jekyll-cache/
+.sass-cache/
+vendor/bundle/
+_posts/typst/
+files/typst/
 
