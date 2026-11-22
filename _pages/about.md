@@ -11,6 +11,17 @@ author_profile: true
 
 I lived in Leshan, Xichang, and Chengdu, and now live in Beijing.
 
+## Selected Papers
+
+- **Vibe Calibration: Autonomous Bring-up of a 112-Qubit Superconducting Quantum Processor by a Skill-Orchestrating Language Agent**  
+  Huikai Xu, Jiaxiu Han, **Shigang Ou**, Cheng Ye, Zisong Shen, Jing Gao, Yijia Wang, Tianrui Che, Yu Song, Weiyang Liu, Lei Wang, Lin-Feng Zhang, Pan Zhang, and Hai-Feng Yu  
+  *arXiv preprint*, 2026 · [arXiv:2606.22376](https://arxiv.org/abs/2606.22376)
+- **CrystalFormer-CSP: Thinking Fast and Slow for Crystal Structure Prediction**  
+  Zhendong Cao, **Shigang Ou**, and Lei Wang  
+  *Physical Review B* (Accepted, 2026) · [DOI](https://doi.org/10.1103/fnym-1ypn) · [arXiv:2512.18251](https://arxiv.org/abs/2512.18251)
+
+For a full list, see my [Google Scholar](https://scholar.google.com/citations?user=_WLGIQsAAAAJ) profile.
+
 ## Life Track
 
 - Leshan: Birth and Preschool **2001–2007**
@@ -43,7 +54,6 @@ I lived in Leshan, Xichang, and Chengdu, and now live in Beijing.
 ### YouTubers and Uploaders I Enjoy
 
 - [3Blue1Brown](https://www.3blue1brown.com/): Math videos via coding
-- 天真的和感伤的小说家: Book reviews and story adaptations
 - Bob Ross: A series of painting tutorials
 - Code Adventure: Visualizing algorithms using Unity and other game techniques
 - Inigo Quilez: Generating animations using Shadertoy
